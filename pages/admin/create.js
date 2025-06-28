@@ -8,11 +8,21 @@ export default function CreatePost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate inputs
+    if (!title.trim() || !content.trim()) {
+      setError('All fields are required');
+      return;
+    }
+
     setIsSubmitting(true);
+    setError(''); // Clear any previous errors
+    
     try {
       await fetch('/api/posts', {
         method: 'POST',
@@ -22,13 +32,13 @@ export default function CreatePost() {
       router.push('/admin');
     } catch (error) {
       console.error('Error creating post:', error);
+      setError('Failed to create post. Please try again.');
       setIsSubmitting(false);
     }
   };
 
   return (
     <div className={styles.adminDashboard}>
-     
       <nav className={styles.adminNav}>
         <div className={styles.navContainer}>
           <div className={styles.navContent}>
@@ -49,7 +59,6 @@ export default function CreatePost() {
         </div>
       </nav>
 
-   
       <main className={styles.adminMain}>
         <div className={styles.createContainer}>
           <div className={styles.pageHeader}>
@@ -57,18 +66,32 @@ export default function CreatePost() {
             <p>Write and publish your new blog post</p>
           </div>
 
+          {error && (
+            <div className={styles.errorMessage}>
+              {error}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className={styles.postForm}>
             <input
               type="text"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => {
+                setTitle(e.target.value);
+                setError(''); // Clear error when typing
+              }}
               placeholder="Post Title"
               className={styles.titleInput}
-              required
             />
             
-            <div className={styles.editorContainer} style={{ minHeight: 'auto', height: 'auto' }}>
-              <RichTextEditor value={content} onChange={setContent} style={{ minHeight: 'auto', height: 'auto' }} />
+            <div className={styles.editorContainer}>
+              <RichTextEditor 
+                value={content} 
+                onChange={(value) => {
+                  setContent(value);
+                  setError(''); // Clear error when editing
+                }} 
+              />
             </div>
 
             <div className={styles.formActions}>

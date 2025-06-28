@@ -41,34 +41,26 @@ export default function AllPosts() {
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
             <p className="mt-4 text-gray-600">Loading posts...</p>
           </div>
-        ) : posts.length === 0 ? (
-          <div className="text-center max-w-md mx-auto">
-            <p className="text-gray-600 mb-6">No posts available yet.</p>
-           
-          </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {posts.map(post => (
               <div 
                 key={post._id} 
                 className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow"
               >
                 <Link href={`/posts/${post.slug}`}>
-                  <div className="cursor-pointer h-full flex flex-col">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+                  <div className="cursor-pointer h-full flex flex-col" style={{ justifyContent: 'space-between' }}>
+                    <h2 className="text-2xl font-semibold flex items-center gap-2 mb-2">
                       {post.title}
                     </h2>
                     {post.excerpt && (
-                      <p className="text-gray-600 mb-4 line-clamp-3">
+                      <p className="text-gray-600 mb-6 line-clamp-3">
                         {post.excerpt}
                       </p>
                     )}
-                    <div className="mt-auto pt-4">
-                      <button className="w-full border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition flex items-center justify-center">
-                        Read Post 
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                    <div className="mt-4" style={{ marginTop: '25px' }}>
+                      <button className="w-full border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition">
+                        Read Post →
                       </button>
                     </div>
                   </div>
