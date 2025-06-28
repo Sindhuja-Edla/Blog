@@ -1,0 +1,339 @@
+/* Base Styles */
+.adminDashboard {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Navigation Styles */
+.adminNav {
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navContainer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navBrand {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #111827;
+  text-decoration: none;
+}
+
+.navBrand:hover {
+  color: #2563eb;
+}
+
+.navLink {
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #374151;
+}
+
+.createButton {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.createButton:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content Styles */
+.adminMain {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.pageHeader p {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+/* Loading Spinner */
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid transparent;
+  border-top-color: #2563eb;
+  border-bottom-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinnerSmall {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top-color: #b91c1c;
+  border-bottom-color: #b91c1c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty State */
+.emptyState {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+.emptyState p {
+  color: #6b7280;
+}
+
+/* Posts Grid */
+.postsGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .postsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .postsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Post Card */
+.postCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.postCard:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.cardContent {
+  padding: 1.25rem 1.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cardHeader h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.errorMessage {
+  font-size: 0.75rem;
+  color: #dc2626;
+}
+
+.cardExcerpt {
+  color: #6b7280;
+  margin: 0.5rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card Actions */
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.viewButton {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+}
+
+.viewButton:hover {
+  background-color: #1d4ed8;
+}
+
+.editButton {
+  background-color: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.editButton:hover {
+  background-color: #f9fafb;
+}
+
+.deleteButton {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: none;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background-color: #fecaca;
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deletingText {
+  display: flex;
+  align-items: center;
+}
+
+/* Add these new styles to your existing admin.module.css */
+
+.createContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.postForm {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.titleInput {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s ease;
+}
+
+.titleInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.editorContainer {
+  border: none;
+  border-radius: 0.375rem; 
+  margin-bottom: 1.5rem;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.submitButton {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  background-color: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1.5rem;
+}
+
+.cancelButton:hover {
+  background-color: #f9fafb;
+}
