@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import RichTextEditor from '../../../components/RichTextEditor';
-import styles from '../../admin/admin.module.css';
+import styles from '../Admin.module.css';
 
 export default function EditPage() {
   const router = useRouter();
