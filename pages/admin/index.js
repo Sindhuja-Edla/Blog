@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import styles from './admin.module.css';
+import styles from './Admin.module.css';
 
 export default function AdminDashboard() {
   const [posts, setPosts] = useState([]);
