@@ -63,7 +63,7 @@ export default function PostPage() {
 
       <div className={`container mx-auto px-4 py-16 ${styles.postContainer}`}>
         <nav className={styles.postNav}>
-          <Link href="/admin" className={styles.backLink}>
+          <Link href="/" className={styles.backLink}>
             ← Back to All Posts
           </Link>
         </nav>

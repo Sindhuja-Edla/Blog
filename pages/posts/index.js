@@ -26,7 +26,7 @@ export default function AllPosts() {
         <meta name="description" content="Browse all our blog posts" />
       </Head>
 
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16" style={{ padding: '0px' }}>
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">All Blog Posts</h1>
           <Link href="/">
